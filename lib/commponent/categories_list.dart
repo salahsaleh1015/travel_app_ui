@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
+import '../responsive.dart';
 
 class CategoriesList extends StatefulWidget {
 
@@ -25,7 +26,7 @@ class _CategoriesListState extends State<CategoriesList> {
     return Padding(
       padding: EdgeInsets.all(10),
       child: SizedBox(
-        height: 30,
+        height:isTab(context)?50 :30,
         child: ListView.builder(
             physics: BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
@@ -42,7 +43,7 @@ class _CategoriesListState extends State<CategoriesList> {
                   placesCategories[index],
                   style:  TextStyle(
                     color: selectedIndex==index?kPrimaryColor: kTextColor,
-                    fontSize: 20,
+                    fontSize:isTab(context)?30 :20,
                     fontWeight:selectedIndex==index?FontWeight.bold: FontWeight.normal
 
 

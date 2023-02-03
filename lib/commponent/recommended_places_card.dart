@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_star_rating_null_safety/smooth_star_rating_null_safety.dart';
 import 'package:travel_app_ui/constants.dart';
+import 'package:travel_app_ui/responsive.dart';
 
 import '../models/place.dart';
 import '../utils.dart';
@@ -14,7 +15,7 @@ class RecommendedPlacesCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap:isEvent,
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
@@ -48,8 +49,8 @@ class RecommendedPlacesCard extends StatelessWidget {
                         children: [
                           Text(
                             place.name,
-                            style: const TextStyle(
-                              fontSize: 13,
+                            style:  TextStyle(
+                              fontSize:isTab(context)?20: 13,
                               color: kTextColor,
                               fontWeight: FontWeight.w700,
                             ),
@@ -63,7 +64,7 @@ class RecommendedPlacesCard extends StatelessWidget {
                         onRatingChanged: (v) {},
                         starCount: 4,
                         rating: place.rating,
-                        size: 10.0,
+                        size: isTab(context)?15:10.0,
                         color: kRatingStarColor,
                       )
                     ],
